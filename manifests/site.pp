@@ -25,9 +25,10 @@ define openstack_health::site(
   }
 
   exec {'move-static-files':
-    command   => "mv ${openstack_health::source_dir}/build ${httproot}",
-    path      => ['/usr/local/bin/', '/usr/bin/', '/bin/'],
-    subscribe => Exec['build-static-files']
+    command     => "mv ${openstack_health::source_dir}/build ${httproot}",
+    path        => ['/usr/local/bin/', '/usr/bin/', '/bin/'],
+    subscribe   => Exec['build-static-files'],
+    refreshonly => true,
   }
 
   file {$httproot:
