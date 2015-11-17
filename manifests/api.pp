@@ -71,8 +71,14 @@ class openstack_health::api(
       ensure => present,
     }
   }
-  if ! defined(Httpd::Mod['cache_disk']) {
-    httpd::mod { 'cache_disk':
+
+  if $::operatingsystem == 'Ubuntu' and $::operatingsystemrelease == '12.04' {
+    $cache_disk_module = 'disk_cache'
+  } else {
+    $cache_disk_module = 'cache_disk'
+  }
+  if ! defined(Httpd::Mod[$cache_disk_module]) {
+    httpd::mod { $cache_disk_module:
       ensure => present,
     }
   }
