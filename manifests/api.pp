@@ -51,6 +51,10 @@ class openstack_health::api(
     require => Class['::python'],
   }
 
+  package {'apache2-utils':
+    ensure => present,
+  }
+
   exec { 'requirements':
     command     => "${virtualenv_dir}/bin/pip install -U -r ${source_dir}/requirements.txt",
     require     => Python::Virtualenv[$virtualenv_dir],
