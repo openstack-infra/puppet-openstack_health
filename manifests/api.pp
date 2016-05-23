@@ -16,6 +16,8 @@ class openstack_health::api(
   $vhost_port = 5000,
   $ignored_run_metadata_keys = undef,
   $elastic_recheck_dir = '/opt/elastic-recheck',
+  $elastic_recheck_repo = 'https://git.openstack.org/openstack-infra/elastic-recheck',
+  $elastic_recheck_revision = 'master',
 ) {
 
   include ::httpd::mod::wsgi
@@ -52,8 +54,8 @@ class openstack_health::api(
     owner    => 'openstack_health',
     group    => 'openstack_health',
     provider => git,
-    revision => 'master',
-    source   => 'https://git.openstack.org/openstack-infra/elastic-recheck',
+    revision => $elastic_recheck_revision,
+    source   => $elastic_recheck_repo,
     require  => Class['::openstack_health::user'],
   }
 
