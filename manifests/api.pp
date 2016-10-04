@@ -105,11 +105,16 @@ class openstack_health::api(
     ensure => present,
   }
 
+  package {'cython':
+    ensure => present,
+  }
+
   exec { 'requirements':
     command     => "${virtualenv_dir}/bin/pip install -U -r ${source_dir}/requirements.txt",
     require     => [
       Python::Virtualenv[$virtualenv_dir],
       Package['libmemcached-dev'],
+      Package['cython'],
     ],
     subscribe   => Vcsrepo[$source_dir],
     refreshonly => true,
