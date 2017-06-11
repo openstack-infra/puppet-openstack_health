@@ -31,7 +31,6 @@ describe 'puppet-openstack_health::api manifest', :if => ['debian', 'ubuntu'].in
 
     describe 'npm packages' do
       required_packages = [
-        package('npm'),
         package('node-gyp'),
         package('gulp'),
       ]
