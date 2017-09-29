@@ -11,7 +11,6 @@ class openstack_health::frontend(
   class { '::nodejs':
     legacy_debian_symlinks => true,
     repo_url_suffix        => 'node_0.12',
-    npm_package_ensure     => 'present',
   }
 
   package { 'node-gyp':
