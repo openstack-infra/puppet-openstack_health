@@ -1,9 +1,9 @@
-<% unless [443, 80].include?(@vhost_port.to_i) %>
-Listen <%= @vhost_port %>
+<% unless [443, 80].include?(scope.lookupvar("::openstack_health::vhost::vhost_port").to_i) %>
+Listen <%= scope.lookupvar("::openstack_health::vhost::vhost_port") %>
 <% end %>
-<VirtualHost *:<%= @vhost_port %>>
-  ServerName <%= @vhost_name %>
-  ServerAdmin <%= @serveradmin %>
+<VirtualHost *:<%= scope.lookupvar("::openstack_health::vhost::vhost_port") %>>
+  ServerName <%= scope.lookupvar("::openstack_health::vhost::vhost_name") %>
+  ServerAdmin <%= scope.lookupvar("::openstack_health::vhost::serveradmin") %>
 
   LogLevel info
   CustomLog ${APACHE_LOG_DIR}/openstack-health-frontend-access.log combined
