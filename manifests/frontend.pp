@@ -9,7 +9,8 @@ class openstack_health::frontend(
 ) {
 
   class { '::nodejs':
-    repo_url_suffix    => '6.x',
+    repo_url_suffix        => '6.x',
+    legacy_debian_symlinks => false,
   }
 
   package { 'node-gyp':
