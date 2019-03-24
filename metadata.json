@@ -4,7 +4,7 @@
   "author": "OpenStack Contributors",
   "summary": "Puppet module for OpenStack Health",
   "license": "Apache 2.0",
-  "source": "git://git.openstack.org/openstack-infra/puppet-openstack-health.git",
+  "source": "https://git.openstack.org/openstack-infra/puppet-openstack-health.git",
   "project_page": "http://docs.openstack.org/infra/system-config/",
   "issues_url": "",
   "description": "Installs and configures OpenStack Health",
