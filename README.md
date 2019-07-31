@@ -1,19 +1,3 @@
-# OpenStack Health Puppet Module
+# This repo has moved to OpenDev
 
-## Overview
-
-This module provisions (OpenStack Health)[http://git.openstack.org/cgit/openstack/openstack-health].
-
-## Running lint
-
-```
-$ bundle install
-$ bundle exec rake lint
-```
-
-## Running acceptance tests
-
-```
-$ bundle install
-$ bundle exec rspec spec/acceptance
-```
+It can now be found at [https://opendev.org/opendev/puppet-openstack_health](https://opendev.org/opendev/puppet-openstack_health)
